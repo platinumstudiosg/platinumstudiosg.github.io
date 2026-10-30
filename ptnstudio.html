@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PlaTiNum Studio</title>
+<meta name="description" content="PlaTiNum Studio: channels, side gigs and AI experiments in one place.">
+<script>(function(){var d=document.documentElement,seen=false;try{seen=sessionStorage.getItem("pt_intro")==="1"}catch(e){}if(!seen)d.classList.add("js-intro")})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#08090B}
+a{color:#E7EBF0}a:hover{color:#FFFFFF}
+.chrome{background-image:linear-gradient(100deg,#6E7680 0%,#FFFFFF 18%,#A9B1BB 32%,#2E343B 46%,#F2F5F8 58%,#8C96A1 72%,#FFFFFF 86%,#6E7680 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.anim-on .chrome{animation:sheen 7s linear infinite}
+.anim-on .blob-spin{animation:spin 40s linear infinite;transform-origin:50% 50%}
+.anim-on .float{animation:float 9s ease-in-out infinite}
+@keyframes sheen{from{background-position:0% 0}to{background-position:220% 0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+.card{transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
+.card:hover{transform:translateY(-4px);border-color:#C9D1DA;box-shadow:0 0 0 1px rgba(201,209,218,.25),0 24px 60px -20px rgba(143,184,255,.35)}
+.pill{transition:background-color .25s ease,color .25s ease}
+.pill:hover{background-color:#E7EBF0;color:#08090B}
+.btn-chrome{transition:filter .25s ease,transform .25s ease}
+.btn-chrome:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.btn-ghost:hover{background-color:rgba(231,235,240,.08)}
+@media (max-width:720px){.hero-title{font-size:15vw !important}.nav-links{display:none !important}.section{padding-left:20px !important;padding-right:20px !important}}
+@media (prefers-reduced-motion:reduce){.anim-on .chrome,.anim-on .blob-spin,.anim-on .float{animation:none}}
+</style>
+<style>a:focus-visible{outline:2px solid #8FB8FF;outline-offset:3px}html{scroll-behavior:smooth}</style>
+<style>
+/* ---------- Loading intro (once per browser session) ---------- */
+:root{--ease-out:cubic-bezier(0.23,1,0.32,1);--ease-in-out:cubic-bezier(0.77,0,0.175,1)}
+#loader{display:none}
+html.js-intro #loader{display:flex;position:fixed;inset:0;z-index:100;flex-direction:column;align-items:center;justify-content:center;gap:26px;
+  background:radial-gradient(38% 28% at 50% 46%,rgba(143,184,255,.10),transparent 70%),#08090B;
+  clip-path:inset(0 0 0 0);transition:clip-path .85s var(--ease-in-out);
+  animation:ldFailsafe 0s 5s forwards}
+html.js-intro.is-loaded #loader{clip-path:inset(0 0 100% 0);pointer-events:none}
+.ld-mark{position:relative;width:104px;height:104px;opacity:0;transform:scale(.94);animation:ldIn .8s var(--ease-out) .1s forwards}
+.ld-mark svg{display:block;width:100%;height:100%}
+.ld-sheen{position:absolute;inset:0;clip-path:polygon(50% 5.9%,91.2% 29.4%,91.2% 70.6%,50% 94.1%,8.8% 70.6%,8.8% 29.4%);overflow:hidden}
+.ld-sheen::before{content:"";position:absolute;inset:-20% 0;background:linear-gradient(105deg,transparent 32%,rgba(255,255,255,.85) 50%,transparent 68%);transform:translateX(-130%);animation:ldSheen 1.9s linear .55s infinite}
+.ld-word{font-family:"Helvetica Neue",system-ui,sans-serif;font-weight:600;font-size:13px;letter-spacing:.46em;text-indent:.46em;color:#C9D1DA;
+  clip-path:inset(0 100% 0 0);animation:ldWipe .9s var(--ease-out) .35s forwards}
+.ld-bar{width:168px;height:2px;border-radius:2px;background:#1C2026;overflow:hidden}
+.ld-bar span{display:block;height:100%;background:linear-gradient(90deg,#8C96A1,#FFFFFF,#8FB8FF);transform-origin:0 50%;transform:scaleX(0);animation:ldBar 2.6s var(--ease-out) .2s forwards}
+html.js-intro.is-loaded .ld-bar span{animation:ldBarDone .3s var(--ease-out) forwards}
+@keyframes ldIn{to{opacity:1;transform:none}}
+@keyframes ldSheen{0%{transform:translateX(-130%)}55%,100%{transform:translateX(130%)}}
+@keyframes ldWipe{to{clip-path:inset(0 0 0 0)}}
+@keyframes ldBar{to{transform:scaleX(.9)}}
+@keyframes ldBarDone{from{transform:scaleX(.9)}to{transform:scaleX(1)}}
+@keyframes ldFailsafe{to{visibility:hidden}}
+@keyframes ldShow{to{opacity:1;transform:none}}
+/* hero settles in after the curtain lifts */
+html.js-intro .intro-in{opacity:0;transform:translateY(16px);animation:ldShow 0s 5s forwards}
+html.js-intro.is-loaded .intro-in{opacity:1;transform:none;animation:none;transition:opacity .7s var(--ease-out),transform .7s var(--ease-out);transition-delay:calc(var(--i,0) * 70ms + 300ms)}
+html.js-intro .intro-fade{transition:opacity 1.4s var(--ease-out) .25s}
+html.js-intro:not(.is-loaded) .intro-fade{opacity:0 !important}
+@media (prefers-reduced-motion:reduce){
+  html.js-intro #loader{clip-path:none;transition:opacity .4s ease}
+  html.js-intro.is-loaded #loader{opacity:0}
+  .ld-mark,.ld-word{transform:none;clip-path:none;opacity:0;animation:ldFade .4s ease .1s forwards}
+  .ld-sheen{display:none}
+  html.js-intro .intro-in{transform:none}
+}
+@keyframes ldFade{to{opacity:1}}
+</style>
+</head>
+<body>
+<div id="loader" aria-hidden="true">
+<div class="ld-mark">
+<svg viewBox="0 0 34 34"><defs><linearGradient id="ldChrome" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset="0.45" stop-color="#8C96A1"></stop><stop offset="0.6" stop-color="#2E343B"></stop><stop offset="1" stop-color="#F2F5F8"></stop></linearGradient></defs><path d="M17 2 L31 10 L31 24 L17 32 L3 24 L3 10 Z" fill="url(#ldChrome)"></path><text x="17" y="21.5" text-anchor="middle" font-family="Unbounded, 'Arial Black', system-ui, sans-serif" font-weight="800" font-size="11" fill="#08090B">Pt</text></svg>
+<span class="ld-sheen"></span>
+</div>
+<div class="ld-word">PLATINUM STUDIO</div>
+<div class="ld-bar"><span></span></div>
+</div>
+<div class="anim-on" style="min-height: 100vh; background-color: #08090B; color: #E7EBF0; font-family: 'Instrument Sans', 'Helvetica Neue', system-ui, sans-serif; overflow: hidden">
+
+<header class="section intro-in" style="--i:0; max-width: 1240px; margin: 0 auto; padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; position: relative; z-index: 3">
+<a href="#top" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
+<svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><defs><linearGradient id="lgMark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset="0.45" stop-color="#8C96A1"></stop><stop offset="0.6" stop-color="#2E343B"></stop><stop offset="1" stop-color="#F2F5F8"></stop></linearGradient></defs><path d="M17 2 L31 10 L31 24 L17 32 L3 24 L3 10 Z" fill="url(#lgMark)"></path><text x="17" y="21.5" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="11" fill="#08090B">Pt</text></svg>
+<span style="font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 0.02em">PlaTiNum Studio</span>
+</a>
+<nav class="nav-links" style="display: flex; align-items: center; gap: 32px; font-size: 15px">
+<a href="#channels" style="text-decoration: none; color: #A9B1BB">Channels</a>
+<a href="#lab" style="text-decoration: none; color: #A9B1BB">AI Lab</a>
+<a href="#gigs" style="text-decoration: none; color: #A9B1BB">Side gigs</a>
+<a href="#contact" class="pill" style="text-decoration: none; padding: 12px 20px; border: 1px solid #3A4048; border-radius: 999px; color: #E7EBF0">Get in touch</a>
+</nav>
+</header>
+
+<section id="top" class="section" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 80px 40px 140px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 32px">
+<div class="float intro-fade" style="position: absolute; top: -40px; left: 50%; margin-left: -330px; width: 660px; height: 660px; z-index: 0; pointer-events: none; opacity: 0.9">
+<svg viewBox="0 0 600 600" width="100%" height="100%" aria-hidden="true">
+<defs>
+<linearGradient id="lgChrome" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#FFFFFF"></stop>
+<stop offset="0.18" stop-color="#9AA3AD"></stop>
+<stop offset="0.34" stop-color="#1C2026"></stop>
+<stop offset="0.5" stop-color="#E8ECF1"></stop>
+<stop offset="0.64" stop-color="#5D6670"></stop>
+<stop offset="0.8" stop-color="#F7F9FB"></stop>
+<stop offset="1" stop-color="#3B424A"></stop>
+</linearGradient>
+<radialGradient id="rgSpec" cx="0.35" cy="0.3" r="0.6">
+<stop offset="0" stop-color="#FFFFFF" stop-opacity="0.85"></stop>
+<stop offset="0.35" stop-color="#C9DCFF" stop-opacity="0.25"></stop>
+<stop offset="1" stop-color="#000000" stop-opacity="0"></stop>
+</radialGradient>
+<radialGradient id="rgGlow" cx="0.5" cy="0.5" r="0.5">
+<stop offset="0" stop-color="#8FB8FF" stop-opacity="0.35"></stop>
+<stop offset="1" stop-color="#8FB8FF" stop-opacity="0"></stop>
+</radialGradient>
+<filter id="fLiquid" x="-20%" y="-20%" width="140%" height="140%">
+<feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="2" seed="7" result="noise">
+<animate attributeName="baseFrequency" values="0.009;0.016;0.011;0.009" dur="16s" repeatCount="indefinite"></animate>
+</feTurbulence>
+<feDisplacementMap in="SourceGraphic" in2="noise" scale="70" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+</filter>
+</defs>
+<circle cx="300" cy="300" r="290" fill="url(#rgGlow)"></circle>
+<g filter="url(#fLiquid)">
+<g class="blob-spin">
+<circle cx="300" cy="300" r="190" fill="url(#lgChrome)"></circle>
+<ellipse cx="300" cy="300" rx="150" ry="70" fill="url(#lgChrome)" transform="rotate(-30 300 300)" opacity="0.75"></ellipse>
+</g>
+<circle cx="300" cy="300" r="190" fill="url(#rgSpec)"></circle>
+</g>
+</svg>
+</div>
+<div style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 28px; padding-top: 120px">
+<span class="intro-in" style="--i:1; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #C9D1DA; padding: 10px 16px; border: 1px solid #2A3038; border-radius: 999px; background-color: rgba(8,9,11,0.6)">Channels · Side gigs · AI experiments</span>
+<h1 class="hero-title chrome intro-in" style="--i:2; margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 800; font-size: 112px; line-height: 0.95; letter-spacing: -0.03em">PlaTiNum<br>Studio</h1>
+<p class="intro-in" style="--i:3; margin: 0; max-width: 620px; font-size: 20px; line-height: 1.55; color: #B9C0C9">Everything I make in one place — true-crime and clip channels, AI-animated characters, and the automation pipelines that build them.</p>
+<div class="intro-in" style="--i:4; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 8px">
+<a href="#channels" class="btn-chrome" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; min-height: 52px; box-sizing: border-box; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 16px; color: #08090B; background-image: linear-gradient(100deg,#FFFFFF,#AEB6C0 45%,#F4F6F8 70%,#8C96A1)">Explore the channels
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+</a>
+<a href="#contact" class="btn-ghost" style="display: inline-flex; align-items: center; padding: 16px 28px; min-height: 52px; box-sizing: border-box; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 16px; color: #E7EBF0; border: 1px solid #3A4048">Work with me</a>
+</div>
+</div>
+</section>
+
+<section id="channels" class="section" style="max-width: 1240px; margin: 0 auto; padding: 40px 40px 120px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #8FB8FF">01 — Channels</span>
+<h2 class="chrome" style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 52px; line-height: 1.05; letter-spacing: -0.02em">What I'm posting</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
+
+<article class="card" style="display: flex; flex-direction: column; gap: 20px; padding: 32px; border: 1px solid #262B32; border-radius: 24px; background-image: linear-gradient(160deg,#14171B,#0B0C0F)">
+<div style="height: 160px; border-radius: 16px; background-image: radial-gradient(120% 90% at 20% 10%,#3A4652 0%,#12151A 55%,#08090B 100%); display: flex; align-items: flex-end; padding: 18px; box-sizing: border-box; border: 1px solid #22272E">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #C9D1DA">CASE FILE // TRUE CRIME</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 24px">TheDNABreak</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #A9B1BB">True-crime Shorts and long-form breakdowns. Formerly CaseCracked247.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto">
+<a href="#" class="pill" style="text-decoration: none; font-size: 14px; padding: 10px 14px; border: 1px solid #3A4048; border-radius: 999px">YouTube</a>
+<a href="#" class="pill" style="text-decoration: none; font-size: 14px; padding: 10px 14px; border: 1px solid #3A4048; border-radius: 999px">TikTok</a>
+<a href="#" class="pill" style="text-decoration: none; font-size: 14px; padding: 10px 14px; border: 1px solid #3A4048; border-radius: 999px">Instagram</a>
+<a href="#" class="pill" style="text-decoration: none; font-size: 14px; padding: 10px 14px; border: 1px solid #3A4048; border-radius: 999px">Facebook</a>
+</div>
+</article>
+
+<article class="card" style="display: flex; flex-direction: column; gap: 20px; padding: 32px; border: 1px solid #262B32; border-radius: 24px; background-image: linear-gradient(160deg,#14171B,#0B0C0F)">
+<div style="height: 160px; border-radius: 16px; background-image: radial-gradient(120% 90% at 80% 10%,#2C3B57 0%,#12151A 55%,#08090B 100%); display: flex; align-items: flex-end; padding: 18px; box-sizing: border-box; border: 1px solid #22272E">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #C9D1DA">LIVE // REACTION CLIPS</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 24px">ClipClip</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #A9B1BB">The best Twitch reaction moments, cut and captioned daily.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto">
+<a href="#" class="pill" style="text-decoration: none; font-size: 14px; padding: 10px 14px; border: 1px solid #3A4048; border-radius: 999px">YouTube @ClipClip2103</a>
+<a href="#" class="pill" style="text-decoration: none; font-size: 14px; padding: 10px 14px; border: 1px solid #3A4048; border-radius: 999px">TikTok @2103clipclip</a>
+<a href="#" class="pill" style="text-decoration: none; font-size: 14px; padding: 10px 14px; border: 1px solid #3A4048; border-radius: 999px">Instagram @clipclip2103</a>
+</div>
+</article>
+
+
+
+</div>
+</section>
+
+<section id="lab" class="section" style="max-width: 1240px; margin: 0 auto; padding: 40px 40px 120px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #8FB8FF">02 — AI Lab</span>
+<h2 class="chrome" style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 52px; line-height: 1.05; letter-spacing: -0.02em">How it gets made</h2>
+<p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 1.6; color: #A9B1BB">Most of the studio runs on AI pipelines I build and tune myself.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background-color: #262B32; border: 1px solid #262B32; border-radius: 24px; overflow: hidden">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 32px; background-color: #0E1013">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9D1DA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M10 9l5 3-5 3z"></path></svg>
+<h3 style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 18px">Local AI video</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #A9B1BB">ComfyUI and LTX-Video running on my own machine for character animation.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 32px; background-color: #0E1013">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9D1DA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5"></path><path d="M16 7l5 5-5 5"></path><path d="M13 4l-2 16"></path></svg>
+<h3 style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 18px">Claude Code automation</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #A9B1BB">Daily production loops: picking topics and clips, scripts, narration, assembly and SEO.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 32px; background-color: #0E1013">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9D1DA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>
+<h3 style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 18px">Original characters</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #A9B1BB">Recurring AI-made characters with their own lore, built for bilingual audiences.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 32px; background-color: #0E1013">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9D1DA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="M8 15l4-4 3 3 5-6"></path></svg>
+<h3 style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 18px">Channel analytics</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #A9B1BB">Automated daily checks across platforms to see what's working and what to post next.</p>
+</div>
+</div>
+</section>
+
+<section id="gigs" class="section" style="max-width: 1240px; margin: 0 auto; padding: 40px 40px 120px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #8FB8FF">03 — Side gigs</span>
+<h2 class="chrome" style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 52px; line-height: 1.05; letter-spacing: -0.02em">Other things I do</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
+<a href="#" class="card" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 32px; border: 1px solid #262B32; border-radius: 24px; text-decoration: none; background-color: #0E1013">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 22px">[GIG NAME]</span>
+<span style="font-size: 15px; line-height: 1.5; color: #A9B1BB">[One line on what it is]</span>
+</div>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg>
+</a>
+<a href="#" class="card" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 32px; border: 1px solid #262B32; border-radius: 24px; text-decoration: none; background-color: #0E1013">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 22px">[GIG NAME]</span>
+<span style="font-size: 15px; line-height: 1.5; color: #A9B1BB">[One line on what it is]</span>
+</div>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg>
+</a>
+</div>
+</section>
+
+<section id="contact" class="section" style="max-width: 1240px; margin: 0 auto; padding: 40px 40px 100px">
+<div style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: 88px 32px; border-radius: 32px; border: 1px solid #2A3038; background-image: radial-gradient(80% 120% at 50% 0%,#1D2530 0%,#0B0C0F 70%)">
+<h2 class="chrome" style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 800; font-size: 60px; line-height: 1; letter-spacing: -0.02em">Let's build something</h2>
+<p style="margin: 0; max-width: 520px; font-size: 18px; line-height: 1.6; color: #B9C0C9">Collabs, sponsorships, or AI video and automation work — reach out.</p>
+<a href="mailto:[YOUR EMAIL]" class="btn-chrome" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 30px; min-height: 52px; box-sizing: border-box; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 16px; color: #08090B; background-image: linear-gradient(100deg,#FFFFFF,#AEB6C0 45%,#F4F6F8 70%,#8C96A1)">[YOUR EMAIL]</a>
+</div>
+</section>
+
+<footer class="section" style="max-width: 1240px; margin: 0 auto; padding: 32px 40px 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid #1C2026; font-size: 14px; color: #8A929C">
+<span style="font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; color: #C9D1DA">PlaTiNum Studio</span>
+<span>© 2026 PlaTiNum Studio</span>
+</footer>
+
+</div>
+<script>(function(){var d=document.documentElement;if(!d.classList.contains("js-intro"))return;
+var t0=performance.now(),MIN=1200,MAX=3500,done=false;
+function finish(){if(done)return;done=true;var wait=Math.max(0,MIN-(performance.now()-t0));
+setTimeout(function(){d.classList.add("is-loaded");try{sessionStorage.setItem("pt_intro","1")}catch(e){}
+setTimeout(function(){var l=document.getElementById("loader");if(l)l.remove()},1000)},wait)}
+var fonts=(document.fonts&&document.fonts.ready)?document.fonts.ready:Promise.resolve();
+var page=new Promise(function(r){if(document.readyState==="complete")r();else addEventListener("load",r,{once:true})});
+Promise.all([fonts,page]).then(finish,finish);setTimeout(finish,MAX)})();</script>
+</body>
+</html>
