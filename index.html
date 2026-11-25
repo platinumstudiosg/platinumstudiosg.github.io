@@ -35,8 +35,49 @@ a{color:#E7EBF0}a:hover{color:#FFFFFF}
 <style>a:focus-visible{outline:2px solid #8FB8FF;outline-offset:3px}html{scroll-behavior:smooth}</style>
 <style>details summary::-webkit-details-marker{color:#8FB8FF}details[open] summary{color:#FFFFFF}</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://platinumstudiosg.github.io/#org", "name": "PlaTiNum Studio", "alternateName": ["Platinum Studio", "Platinum Studio HQ"], "url": "https://platinumstudiosg.github.io/", "description": "One-person studio running faceless channels with Claude as the production crew.", "sameAs": ["https://www.instagram.com/platinumstudiohq/", "https://www.facebook.com/platinumstudiohq", "https://platinumsg.gumroad.com/", "https://www.etsy.com/shop/FeralLittleTeeCo"]}, {"@type": "Product", "name": "Faceless Channel Autopilot: The AI Video Production Playbook", "description": "A 20-page PDF playbook showing how one person runs three faceless channels with Claude doing the production, using free tools.", "brand": {"@id": "https://platinumstudiosg.github.io/#org"}, "url": "https://platinumsg.gumroad.com/l/autopilot"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is PlaTiNum Studio?", "acceptedAnswer": {"@type": "Answer", "text": "PlaTiNum Studio is a one-person, build-in-public studio based in Singapore. It runs three faceless channels, TheDNABreak (true crime), Hype Trial (gadget verdicts) and Feral Little Tee Co. (a graphic-tee shop), with Claude doing most of the daily production: research, scripts, narration, editing and SEO."}}, {"@type": "Question", "name": "What is Faceless Channel Autopilot?", "acceptedAnswer": {"@type": "Answer", "text": "Faceless Channel Autopilot is a 20-page PDF playbook that shows the exact system behind those three channels: the daily story-channel pipeline, a BUY / WAIT / SKIP format for product channels, a channel audit method, lessons from shipping every day, and paste-ready SEO and Claude skill templates."}}, {"@type": "Question", "name": "Do I need paid tools to follow the playbook?", "acceptedAnswer": {"@type": "Answer", "text": "Apart from Claude itself, no. The system uses free tools for narration, captions, editing and thumbnails, so you can start without an editing or software budget."}}, {"@type": "Question", "name": "Does the playbook promise income?", "acceptedAnswer": {"@type": "Answer", "text": "No. It shows a working system and the lessons from running it daily. Results depend on your niche, your topics and how consistently you publish."}}, {"@type": "Question", "name": "Is there a free version?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. 10 Hard Lessons from Shipping Every Day is a free PDF guide with the ten rules that cost real views or real hours before they became rules."}}]}]}</script>
+<style>
+#pt-loader{position:fixed;inset:0;z-index:9999;background:radial-gradient(70% 60% at 50% 45%,#141922 0%,#08090B 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;transition:opacity .7s ease,visibility .7s ease}
+#pt-loader.done{opacity:0;visibility:hidden}
+.tetra-stage{width:240px;height:240px;perspective:900px;transform:scale(1.25);display:flex;align-items:center;justify-content:center}
+.tetra{position:relative;width:0;height:0;transform-style:preserve-3d;animation:tspin 3.2s linear infinite}
+@keyframes tspin{from{transform:translateY(40px) rotateX(-18deg) rotateY(0)}to{transform:translateY(40px) rotateX(-18deg) rotateY(360deg)}}
+.tface{position:absolute;left:-75px;top:-130px;width:150px;height:130px;transform-origin:50% 100%;clip-path:polygon(50% 0,100% 100%,0 100%);backface-visibility:visible}
+.tface.f1{transform:rotateY(0deg) translateZ(43.3px) rotateX(19.47deg);background:linear-gradient(160deg,#FFFFFF 0%,#AEB6C0 38%,#2E343B 70%,#E8ECF1 100%)}
+.tface.f2{transform:rotateY(120deg) translateZ(43.3px) rotateX(19.47deg);background:linear-gradient(200deg,#E8ECF1 0%,#5D6670 45%,#1C2026 75%,#C9D1DA 100%)}
+.tface.f3{transform:rotateY(240deg) translateZ(43.3px) rotateX(19.47deg);background:linear-gradient(120deg,#8C96A1 0%,#F7F9FB 40%,#3B424A 80%,#AEB6C0 100%)}
+.tface.f4{transform:rotateY(0deg) translateZ(43.3px) rotateX(90deg);background:linear-gradient(90deg,#2E343B,#8FB8FF 50%,#2E343B)}
+.tface::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 48%,transparent 62%);background-size:250% 100%;animation:tshine 2.4s linear infinite}
+@keyframes tshine{from{background-position:120% 0}to{background-position:-120% 0}}
+.tglow{position:absolute;width:260px;height:60px;border-radius:50%;background:radial-gradient(closest-side,rgba(143,184,255,.35),transparent);transform:translateY(118px);filter:blur(6px)}
+.pt-count{font-family:'Unbounded',system-ui,sans-serif;font-weight:800;font-size:64px;letter-spacing:-0.03em;line-height:1;min-width:4ch;text-align:center}
+.pt-bar{width:min(320px,70vw);height:3px;border-radius:3px;background:#1C2026;overflow:hidden}
+.pt-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8C96A1,#FFFFFF,#8FB8FF)}
+.pt-label{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#8A929C}
+@media (prefers-reduced-motion:reduce){.tetra,.tface::after{animation:none}}
+.shot{display:block;width:100%;height:auto;border-radius:16px;border:1px solid #22272E}
+.gallery figure{margin:0;display:flex;flex-direction:column;gap:12px}
+.gallery figcaption{font-size:14px;line-height:1.5;color:#8A929C}
+</style>
 </head>
 <body>
+<div id="pt-loader" role="status" aria-live="polite" aria-label="Loading PlaTiNum Studio">
+<div class="tetra-stage"><div class="tglow"></div><div class="tetra"><div class="tface f4"></div><div class="tface f1"></div><div class="tface f2"></div><div class="tface f3"></div></div></div>
+<div class="pt-count chrome" id="pt-count">0%</div>
+<div class="pt-bar"><i id="pt-bar"></i></div>
+<div class="pt-label">Loading PlaTiNum Studio</div>
+</div>
+<script>
+(function(){var L=document.getElementById('pt-loader'),C=document.getElementById('pt-count'),B=document.getElementById('pt-bar');
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var start=performance.now(),MIN=reduce?300:1900,MAX=3200,loaded=false,shown=0;
+Promise.race([document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve(),new Promise(function(r){setTimeout(r,2400)})]).then(function(){loaded=true});
+window.addEventListener('load',function(){loaded=true});
+function tick(now){var t=now-start,target=Math.min(t/MIN,1)*(loaded?100:90);if(t>MAX)target=100;
+shown+=(target-shown)*0.18;if(target-shown<0.6)shown=target;var v=Math.round(shown);C.textContent=v+'%';B.style.width=v+'%';
+if(v>=100){setTimeout(function(){L.classList.add('done');document.body.style.overflow='';setTimeout(function(){L.remove()},800)},250);return}
+requestAnimationFrame(tick)}
+document.body.style.overflow='hidden';requestAnimationFrame(tick)})();
+</script>
 <div class="anim-on" style="min-height: 100vh; background-color: #08090B; color: #E7EBF0; font-family: 'Instrument Sans', 'Helvetica Neue', system-ui, sans-serif; overflow: hidden">
 
 <header class="section" style="max-width: 1240px; margin: 0 auto; padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; position: relative; z-index: 3">
@@ -46,6 +87,7 @@ a{color:#E7EBF0}a:hover{color:#FFFFFF}
 </a>
 <nav class="nav-links" style="display: flex; align-items: center; gap: 32px; font-size: 15px">
 <a href="#channels" style="text-decoration: none; color: #A9B1BB">Channels</a>
+<a href="#work" style="text-decoration: none; color: #A9B1BB">The work</a>
 <a href="#lab" style="text-decoration: none; color: #A9B1BB">How it's made</a>
 <a href="#faq" style="text-decoration: none; color: #A9B1BB">FAQ</a>
 <a href="#playbook" class="pill" style="text-decoration: none; padding: 12px 20px; border: 1px solid #3A4048; border-radius: 999px; color: #E7EBF0">Playbook</a>
@@ -106,18 +148,26 @@ a{color:#E7EBF0}a:hover{color:#FFFFFF}
 <section id="channels" class="section" style="max-width: 1240px; margin: 0 auto; padding: 40px 40px 110px; display: flex; flex-direction: column; gap: 44px">
 <div style="display: flex; flex-direction: column; gap: 14px"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #8FB8FF">01 — Channels</span><h2 class="chrome" style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 52px; line-height: 1.05; letter-spacing: -0.02em">What I run every day</h2></div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px"><article class="card" style="display: flex; flex-direction: column; gap: 20px; padding: 32px; border: 1px solid #262B32; border-radius: 24px; background-image: linear-gradient(160deg,#14171B,#0B0C0F)">
-<div style="height: 140px; border-radius: 16px; background-image: radial-gradient(120% 90% at 20% 10%,#3A4652 0%,#12151A 55%,#08090B 100%); display: flex; align-items: flex-end; padding: 18px; box-sizing: border-box; border: 1px solid #22272E"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #C9D1DA">CASE FILE // TRUE CRIME</span></div>
+<div style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid #22272E; aspect-ratio: 16 / 9"><img src="assets/dna_cover.webp" alt="TheDNABreak channel logo: a fingerprint under a red magnifying glass" width="960" height="540" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover"><span style="position: absolute; left: 12px; top: 12px; padding: 6px 10px; border-radius: 8px; background-color: rgba(8,9,11,0.72); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #C9D1DA">CASE FILE // TRUE CRIME</span></div>
 <div style="display: flex; flex-direction: column; gap: 10px"><h3 style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 24px">TheDNABreak</h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #A9B1BB">True-crime long-form breakdowns and Shorts on cold cases, DNA breakthroughs and verdicts, written only from court records and reputable reporting.</p></div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto"><span style="font-size: 14px; padding: 10px 14px; border: 1px solid #262B32; border-radius: 999px; color: #8A929C">YouTube</span><span style="font-size: 14px; padding: 10px 14px; border: 1px solid #262B32; border-radius: 999px; color: #8A929C">Facebook</span><span style="font-size: 14px; padding: 10px 14px; border: 1px solid #262B32; border-radius: 999px; color: #8A929C">Instagram</span></div></article><article class="card" style="display: flex; flex-direction: column; gap: 20px; padding: 32px; border: 1px solid #262B32; border-radius: 24px; background-image: linear-gradient(160deg,#14171B,#0B0C0F)">
-<div style="height: 140px; border-radius: 16px; background-image: radial-gradient(120% 90% at 80% 10%,#2C3B57 0%,#12151A 55%,#08090B 100%); display: flex; align-items: flex-end; padding: 18px; box-sizing: border-box; border: 1px solid #22272E"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #C9D1DA">VERDICT // GADGETS</span></div>
+<div style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid #22272E; aspect-ratio: 16 / 9"><img src="assets/ht_cover.webp" alt="Hype Trial channel logo with BUY, WAIT and SKIP verdict stamps" width="960" height="540" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover"><span style="position: absolute; left: 12px; top: 12px; padding: 6px 10px; border-radius: 8px; background-color: rgba(8,9,11,0.72); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #C9D1DA">VERDICT // GADGETS</span></div>
 <div style="display: flex; flex-direction: column; gap: 10px"><h3 style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 24px">Hype Trial</h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #A9B1BB">Faceless gadget verdict Shorts: is the viral product worth it? Each one ends in BUY, WAIT or SKIP.</p></div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto"><span style="font-size: 14px; padding: 10px 14px; border: 1px solid #262B32; border-radius: 999px; color: #8A929C">Instagram</span><span style="font-size: 14px; padding: 10px 14px; border: 1px solid #262B32; border-radius: 999px; color: #8A929C">Facebook</span></div></article><article class="card" style="display: flex; flex-direction: column; gap: 20px; padding: 32px; border: 1px solid #262B32; border-radius: 24px; background-image: linear-gradient(160deg,#14171B,#0B0C0F)">
-<div style="height: 140px; border-radius: 16px; background-image: radial-gradient(120% 90% at 50% 0%,#4A3A3E 0%,#12151A 55%,#08090B 100%); display: flex; align-items: flex-end; padding: 18px; box-sizing: border-box; border: 1px solid #22272E"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #C9D1DA">SHOP // GRAPHIC TEES</span></div>
+<div style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid #22272E; aspect-ratio: 16 / 9"><img src="assets/feral_cover.webp" alt="Feral Little Tee Co. logo badge: Shop on Etsy" width="960" height="540" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover"><span style="position: absolute; left: 12px; top: 12px; padding: 6px 10px; border-radius: 8px; background-color: rgba(8,9,11,0.72); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #C9D1DA">SHOP // GRAPHIC TEES</span></div>
 <div style="display: flex; flex-direction: column; gap: 10px"><h3 style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 24px">Feral Little Tee Co.</h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #A9B1BB">Soft graphic tees for the terminally online: dog moms, coffee-and-chaos people and science nerds.</p></div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto"><a href="https://www.etsy.com/shop/FeralLittleTeeCo" class="pill" style="text-decoration: none; font-size: 14px; padding: 10px 14px; border: 1px solid #3A4048; border-radius: 999px">Etsy shop</a><span style="font-size: 14px; padding: 10px 14px; border: 1px solid #262B32; border-radius: 999px; color: #8A929C">Instagram</span><span style="font-size: 14px; padding: 10px 14px; border: 1px solid #262B32; border-radius: 999px; color: #8A929C">Facebook</span></div></article></div></section>
+
+<section id="work" class="section" style="max-width: 1240px; margin: 0 auto; padding: 0 40px 110px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 14px"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #8FB8FF">Inside the work</span><h2 class="chrome" style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 40px; line-height: 1.1; letter-spacing: -0.02em">Real frames from the daily output</h2></div>
+<div class="gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; align-items: start">
+<figure><img class="shot" src="assets/ht_verdict.webp" alt="Hype Trial verdict card for a gadget deal, with the yellow robot mascot and BUY, WAIT, SKIP buttons" width="540" height="960" loading="lazy"><figcaption>Hype Trial: an animated verdict card with the robot host. Every product ends in BUY, WAIT or SKIP.</figcaption></figure>
+<figure><img class="shot" src="assets/dna_explainer.webp" alt="Animated explainer diagram comparing two DNA profiles side by side" width="960" height="540" loading="lazy"><figcaption>TheDNABreak: code-drawn explainer scenes for the forensic parts of a case, like comparing two DNA profiles.</figcaption></figure>
+<figure><img class="shot" src="assets/feral_dogmom.webp" alt="Feral Little Tee Co. Dog Mom Certified tee shown under a chat-style joke: Can't move. The dog is asleep." width="540" height="810" loading="lazy"><figcaption>Feral Little Tee Co.: a daily promo for the Dog Mom Certified tee, built from the real listing photos.</figcaption></figure>
+</div></section>
 
 <section id="playbook" class="section" style="max-width: 1240px; margin: 0 auto; padding: 40px 40px 110px; display: flex; flex-direction: column; gap: 44px">
 <div style="display: flex; flex-direction: column; gap: 14px"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #8FB8FF">02 — Playbook</span><h2 class="chrome" style="margin: 0; font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 52px; line-height: 1.05; letter-spacing: -0.02em">The system, written down</h2></div>
