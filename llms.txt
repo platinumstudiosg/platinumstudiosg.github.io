@@ -1,0 +1,15 @@
+# PlaTiNum Studio
+
+> PlaTiNum Studio is a one-person, build-in-public studio in Singapore that runs three faceless channels with Claude as the production crew: TheDNABreak (true crime), Hype Trial (gadget verdicts) and Feral Little Tee Co. (graphic-tee shop on Etsy).
+
+## Products
+- [Faceless Channel Autopilot: The AI Video Production Playbook](https://platinumsg.gumroad.com/l/autopilot): 20-page PDF playbook showing the daily system behind the three channels (story-channel pipeline, BUY/WAIT/SKIP product format, channel audits, SEO pack template, 3 Claude skill templates). Free tools only apart from Claude; no income promises.
+- [10 Hard Lessons from Shipping Every Day (free guide)](https://platinumsg.gumroad.com/l/free-guide): free PDF with ten rules learned from shipping video every day.
+
+## Links
+- [Website](https://platinumstudiosg.github.io/)
+- [Instagram @platinumstudiohq](https://www.instagram.com/platinumstudiohq/)
+- [Facebook: Platinum Studio HQ](https://www.facebook.com/platinumstudiohq)
+- [Feral Little Tee Co. on Etsy](https://www.etsy.com/shop/FeralLittleTeeCo)
+
+Last updated: 2026-11-25
